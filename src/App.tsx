@@ -12,13 +12,22 @@ import AppointmentModal from './components/AppointmentModal';
 function App() {
   const [selectedDoctor, setSelectedDoctor] = useState<Doctor | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [bookedAppointments, setBookedAppointments] = useState<
+    Map<Doctor, string>
+  >(new Map());
 
   const handleBookClick = (doctor: Doctor) => {
     setSelectedDoctor(doctor);
     setIsModalOpen(true);
   };
 
-  const handleAddAppointment = () => {};
+  const handleAddAppointment = (selectedTime: string) => {
+    if (selectedDoctor) {
+      const newMap = new Map(bookedAppointments);
+      newMap.set(selectedDoctor, selectedTime);
+      setBookedAppointments(newMap);
+    }
+  };
 
   const closeModal = () => {
     setSelectedDoctor(null);
