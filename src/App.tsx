@@ -8,6 +8,7 @@ import { Doctor } from './types/Doctor';
 
 import DoctorCard from './components/DoctorCard';
 import AppointmentModal from './components/AppointmentModal';
+import BookedAppointments from './components/BookedAppointments';
 
 function App() {
   const [selectedDoctor, setSelectedDoctor] = useState<Doctor | null>(null);
@@ -49,6 +50,7 @@ function App() {
       </section>
       <section>
         <h2 className='text-center'>Booked appointments</h2>
+        <BookedAppointments appointments={bookedAppointments} />
       </section>
       {selectedDoctor && (
         <AppointmentModal
