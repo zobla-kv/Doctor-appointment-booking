@@ -1,11 +1,29 @@
 import './App.css';
 
+import { useState } from 'react';
+
 import { doctors } from './data/doctors';
 
+import { Doctor } from './types/Doctor';
+
 import DoctorCard from './components/DoctorCard';
+import AppointmentModal from './components/AppointmentModal';
 
 function App() {
-  const handleBookClick = () => {};
+  const [selectedDoctor, setSelectedDoctor] = useState<Doctor | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleBookClick = (doctor: Doctor) => {
+    setSelectedDoctor(doctor);
+    setIsModalOpen(true);
+  };
+
+  const handleAddAppointment = () => {};
+
+  const closeModal = () => {
+    setSelectedDoctor(null);
+    setIsModalOpen(false);
+  };
 
   return (
     <div>
@@ -23,6 +41,14 @@ function App() {
       <section>
         <h2 className='text-center'>Booked appointments</h2>
       </section>
+      {selectedDoctor && (
+        <AppointmentModal
+          doctor={selectedDoctor}
+          isOpen={isModalOpen}
+          onSubmit={handleAddAppointment}
+          onClose={closeModal}
+        />
+      )}
     </div>
   );
 }
