@@ -27,16 +27,21 @@ export const Modal = ({
       aria-modal='true'
       aria-labelledby='modal-title'
     >
-      <div className='bg-white rounded-lg p-3 w-full max-w-md flex flex-col justify-center'>
+      <div className='relative bg-white rounded-lg p-3 w-full max-w-md'>
         <span
           id='modal-title'
-          className='text-lg text-black font-semibold mb-4'
+          className='block text-center text-lg text-black font-semibold mb-6'
         >
           {title}
         </span>
+        <span
+          className='absolute text-3xl right-[12px] top-[4px] cursor-pointer text-black'
+          onClick={onClose}
+        >
+          x
+        </span>
         {children}
-        <Button text='Confirm' onClick={onConfirm} />
-        <Button text='Close' onClick={onClose} />
+        <Button text='Confirm' onClick={onConfirm} styles='block m-auto mt-6' />
       </div>
     </div>,
     document.body

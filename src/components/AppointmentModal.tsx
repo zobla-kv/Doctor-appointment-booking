@@ -55,8 +55,10 @@ const AppointmentModal = ({
           {doctor.availability.map((time, index) => (
             <label
               key={index}
-              className={`p-2 border rounded-md cursor-pointer ${
-                isSelectedTime(time) ? 'bg-blue-600 text-white' : 'bg-gray-100'
+              className={`p-2 rounded cursor-pointer ${
+                isSelectedTime(time)
+                  ? 'bg-green-600 outline-solid outline-green-700'
+                  : 'bg-gray-600'
               }`}
             >
               <input
