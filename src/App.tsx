@@ -54,6 +54,7 @@ function App() {
         <AppointmentModal
           doctor={selectedDoctor}
           isOpen={isModalOpen}
+          bookedTime={bookedAppointments.get(selectedDoctor) || null}
           onSubmit={handleAddAppointment}
           onClose={closeModal}
         />

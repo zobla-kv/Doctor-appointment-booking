@@ -1,10 +1,11 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Modal } from './ui/Modal';
 import { Doctor } from '../types/Doctor';
 
 interface AppointmentModalProps {
   doctor: Doctor;
   isOpen: boolean;
+  bookedTime: string | null;
   onSubmit: (selectedTime: string) => void;
   onClose: () => void;
 }
@@ -12,11 +13,18 @@ interface AppointmentModalProps {
 const AppointmentModal = ({
   doctor,
   isOpen,
+  bookedTime,
   onSubmit,
   onClose,
 }: AppointmentModalProps) => {
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      setSelectedTime(bookedTime);
+    }
+  }, [isOpen, bookedTime]);
 
   const isSelectedTime = (time: string): boolean => selectedTime === time;
 
