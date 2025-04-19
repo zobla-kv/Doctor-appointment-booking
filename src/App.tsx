@@ -57,7 +57,7 @@ function App() {
         </div>
       </section>
       <section>
-        <h2 className='text-center'>Booked appointments</h2>
+        <h2 className='text-center'>My appointments</h2>
         <BookedAppointments appointments={appointments} />
       </section>
       {selectedDoctor && (
