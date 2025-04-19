@@ -27,7 +27,7 @@ export const Modal = ({
       aria-modal='true'
       aria-labelledby='modal-title'
     >
-      <div className='relative bg-white rounded-lg p-3 w-full max-w-md'>
+      <div className='relative bg-white text-black rounded-lg p-3 w-full max-w-md'>
         <span
           id='modal-title'
           className='block text-center text-lg text-black font-semibold mb-6'

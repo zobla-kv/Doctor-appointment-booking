@@ -1,20 +1,20 @@
-import { Doctor } from '../types/Doctor';
+import { Appointment } from '../types/Appointment';
 
 interface BookedAppointmentsProps {
-  appointments: Map<Doctor, string>;
+  appointments: Appointment[];
 }
 
 function BookedAppointments({ appointments }: BookedAppointmentsProps) {
   return (
     <div>
-      {appointments.size === 0 ? (
+      {appointments.length === 0 ? (
         <p className='text-center'>No appointments booked yet.</p>
       ) : (
         <ul className='mt-4 text-center'>
-          {[...appointments.entries()].map(([doctor, time], index) => (
+          {appointments.map((appointment, index) => (
             <li key={index}>
               <span>
-                {doctor.name} - {time}
+                {appointment.doctor.name} - {appointment.timeSlot.time}
               </span>
             </li>
           ))}

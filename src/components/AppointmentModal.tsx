@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
+
 import { Modal } from './ui/Modal';
+
 import { Doctor } from '../types/Doctor';
+import { TimeSlot } from '../types/Appointment';
 
 interface AppointmentModalProps {
   doctor: Doctor;
   isOpen: boolean;
-  bookedTime: string | null;
-  onSubmit: (selectedTime: string) => void;
+  bookedTime: TimeSlot | null;
+  onSubmit: (selectedTime: TimeSlot) => void;
   onClose: () => void;
 }
 
@@ -17,7 +20,7 @@ const AppointmentModal = ({
   onSubmit,
   onClose,
 }: AppointmentModalProps) => {
-  const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const [selectedTime, setSelectedTime] = useState<TimeSlot | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -26,10 +29,11 @@ const AppointmentModal = ({
     }
   }, [isOpen, bookedTime]);
 
-  const isSelectedTime = (time: string): boolean => selectedTime === time;
+  const isSelectedTime = (time: TimeSlot): boolean =>
+    selectedTime?.date === time.date && selectedTime?.time === time.time;
 
   // Submit form from parent modal since confirmation button is outside <form>
-  const handleConfirm = () => {
+  const handleConfirm = (): void => {
     formRef.current?.requestSubmit();
   };
 
@@ -51,28 +55,33 @@ const AppointmentModal = ({
       onClose={onClose}
     >
       <form ref={formRef} onSubmit={handleSubmit}>
-        <fieldset className='grid grid-cols-2 gap-2'>
-          {doctor.availability.map((time, index) => (
-            <label
-              key={index}
-              className={`p-2 rounded cursor-pointer ${
-                isSelectedTime(time)
-                  ? 'bg-green-600 outline-solid outline-green-700'
-                  : 'bg-gray-600'
-              }`}
-            >
-              <input
-                type='radio'
-                name='appointment-time'
-                value={time}
-                checked={isSelectedTime(time)}
-                onChange={() => setSelectedTime(time)}
-                className='hidden'
-              />
-              {time}
-            </label>
-          ))}
-        </fieldset>
+        {doctor.availability.map((slot, index) => (
+          <fieldset key={index}>
+            <label className='text-lg ms-1'>{slot.date}</label>
+            <div className='grid grid-cols-2 gap-2'>
+              {slot.times.map((time, index) => (
+                <label
+                  key={index}
+                  className={`text-white p-2 rounded cursor-pointer ${
+                    isSelectedTime({ date: slot.date, time })
+                      ? 'bg-green-600 outline-solid outline-green-700'
+                      : 'bg-gray-600'
+                  }`}
+                >
+                  <input
+                    type='radio'
+                    name='appointment-time'
+                    value={time}
+                    checked={isSelectedTime({ date: slot.date, time })}
+                    onChange={() => setSelectedTime({ date: slot.date, time })}
+                    className='hidden'
+                  />
+                  {time}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+        ))}
       </form>
     </Modal>
   );
