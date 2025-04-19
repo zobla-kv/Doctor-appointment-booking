@@ -1,12 +1,10 @@
-import { Doctor } from '../types/Doctor';
-
-export const excludeFields = (
-  doctor: Doctor,
-  excludedFields: (keyof Doctor)[]
-): Partial<Doctor> => {
+export const excludeFields = <T extends object>(
+  object: T,
+  excludedFields: (keyof T)[]
+): Partial<T> => {
   return Object.fromEntries(
-    Object.entries(doctor).filter(
-      ([key]) => !excludedFields.includes(key as keyof Doctor)
+    Object.entries(object).filter(
+      ([key]) => !excludedFields.includes(key as keyof T)
     )
-  );
+  ) as Partial<T>;
 };
