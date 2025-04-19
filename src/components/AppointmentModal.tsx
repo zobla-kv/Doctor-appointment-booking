@@ -56,16 +56,16 @@ const AppointmentModal = ({
     >
       <form ref={formRef} onSubmit={handleSubmit}>
         {doctor.availability.map((slot, index) => (
-          <fieldset key={index}>
+          <fieldset key={index} className='mt-2'>
             <label className='text-lg ms-1'>{slot.date}</label>
-            <div className='grid grid-cols-2 gap-2'>
+            <div className='grid grid-cols-4 gap-2'>
               {slot.times.map((time, index) => (
                 <label
                   key={index}
-                  className={`text-white p-2 rounded cursor-pointer ${
+                  className={`p-2 rounded cursor-pointer ${
                     isSelectedTime({ date: slot.date, time })
-                      ? 'bg-green-600 outline-solid outline-green-700'
-                      : 'bg-gray-600'
+                      ? 'time-slot'
+                      : 'time-slot-inactive'
                   }`}
                 >
                   <input
