@@ -12,6 +12,7 @@ interface DoctorCardProps {
 }
 
 function DoctorCard({ doctor, onBook }: DoctorCardProps) {
+  // left for reference
   // const filtered = excludeFields<Doctor>(doctor, ['photo', 'name']);
 
   const fieldsToRender: (keyof Doctor)[] = [
