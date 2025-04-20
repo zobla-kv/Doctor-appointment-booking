@@ -21,8 +21,8 @@ function BookedAppointments({ appointments: ap }: BookedAppointmentsProps) {
     }, {} as Record<string, Appointment[]>);
 
     const sorted = Object.entries(grouped).sort(([dateA], [dateB]) => {
-      const [dayA, monthA] = dateA.split('.').map(Number);
-      const [dayB, monthB] = dateB.split('.').map(Number);
+      const [monthA, dayA] = dateA.split('.').map(Number);
+      const [monthB, dayB] = dateB.split('.').map(Number);
 
       return monthA === monthB ? dayA - dayB : monthA - monthB;
     });
