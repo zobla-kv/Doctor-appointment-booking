@@ -37,7 +37,7 @@ function BookedAppointments({ appointments: ap }: BookedAppointmentsProps) {
       ) : (
         <ul className='mt-10'>
           {appointments.map(([date, appointments]) => (
-            <li key={date} className='px-15 mt-5'>
+            <li key={date} className='mt-5'>
               <span className='text-xl font-semibold underline'>{date}</span>
               {appointments.map((a) => (
                 <div key={a.doctor.name} className='ps-2'>

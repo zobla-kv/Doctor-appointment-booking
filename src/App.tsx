@@ -106,16 +106,16 @@ function App() {
   }, [activeFilters, allDoctors]);
 
   return (
-    <div>
-      <h1 className='text-center text-3xl font-bold mt-5 tracking-[0.25rem]'>
+    <div className='px-4 sm:px-6 md:px-8 lg:px-16 my-5'>
+      <h1 className='text-center text-3xl font-bold tracking-[0.25rem]'>
         Doctor appointment
       </h1>
       <section>
         <h2 className='text-center mb-5'>Doctors</h2>
         <DoctorFilter filters={filterOptions} onSelect={handleFilter} />
-        <div className='mt-10 flex flex-wrap justify-center gap-15 min-h-[600px]'>
+        <div className='mt-10 min-h-lvh grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10'>
           {displayedDoctors.length === 0 ? (
-            <span>No doctors found.</span>
+            <span className='mx-auto'>No doctors found.</span>
           ) : (
             displayedDoctors.map((doctor, index) => (
               <DoctorCard key={index} doctor={doctor} onBook={openModal} />

@@ -27,10 +27,10 @@ export const Modal = ({
       aria-modal='true'
       aria-labelledby='modal-title'
     >
-      <div className='relative bg-gray-800 text-white rounded p-3 outline-solid w-full max-w-md'>
+      <div className='relative bg-gray-800 text-white rounded p-3 mx-5 sm:mx-0 outline-solid w-full max-w-md'>
         <span
           id='modal-title'
-          className='block text-center text-lg font-semibold mb-6'
+          className='block text-center text-xl font-semibold mb-6'
         >
           {title}
         </span>

@@ -58,7 +58,7 @@ const AppointmentModal = ({
         {doctor.availability.map((slot, index) => (
           <fieldset key={index} className='mt-2'>
             <label className='text-lg ms-1'>{slot.date}</label>
-            <div className='grid grid-cols-4 gap-2'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2'>
               {slot.times.map((time, index) => (
                 <label
                   key={index}

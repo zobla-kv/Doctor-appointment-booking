@@ -23,7 +23,7 @@ function DoctorCard({ doctor, onBook }: DoctorCardProps) {
   ];
 
   return (
-    <div className='w-72 rounded border p-5 flex flex-col'>
+    <div className='rounded border flex flex-col py-5 px-4 mx-auto w-full max-w-[350px]'>
       <img
         className='mx-auto rounded'
         src={doctor.photo}
@@ -32,27 +32,27 @@ function DoctorCard({ doctor, onBook }: DoctorCardProps) {
         height='100px'
       />
       <h3 className='text-center mt-3 font-bold'>{doctor.name}</h3>
-      <div className='px-4'>
-        <ul className='text-center my-4'>
-          {fieldsToRender.map((key) => (
-            <li key={key} className='grid grid-cols-2 text-left'>
-              <span className='capitalize underline'>{key}:</span>
-              {key === 'availability' ? (
-                <div className='col-span-2 grid grid-cols-2'>
-                  {doctor.availability.map((slot, i) => (
-                    <React.Fragment key={i}>
-                      <span className='font-bold'>{slot.date}</span>
+      <ul className='my-4'>
+        {fieldsToRender.map((key) => (
+          <li key={key} className='grid grid-cols-2'>
+            <span className='capitalize underline'>{key}:</span>
+            {key === 'availability' ? (
+              <div className='col-span-2 grid grid-cols-2'>
+                {doctor.availability.map((slot, i) => (
+                  <React.Fragment key={i}>
+                    <span className='font-bold'>{slot.date}</span>
+                    <span className='border flex justify-end'>
                       <span>{formatList(slot.times)}</span>
-                    </React.Fragment>
-                  ))}
-                </div>
-              ) : (
-                <span>{doctor[key]}</span>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
+                    </span>
+                  </React.Fragment>
+                ))}
+              </div>
+            ) : (
+              <span className='text-right'>{doctor[key]}</span>
+            )}
+          </li>
+        ))}
+      </ul>
       <Button
         text='Book'
         styles='block mx-auto mt-auto'

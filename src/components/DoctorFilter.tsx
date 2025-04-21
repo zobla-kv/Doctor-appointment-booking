@@ -9,8 +9,8 @@ interface DoctorFilterProps {
 
 function DoctorFilter({ filters, onSelect }: DoctorFilterProps) {
   return (
-    <form className='flex gap-2'>
-      <label>Filter:</label>
+    <form className='flex flex-col gap-2 sm:flex-row'>
+      <label className='font-bold'>Filter</label>
       <SelectFilter
         name='specialty'
         options={filters.specialty}
