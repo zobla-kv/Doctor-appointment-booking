@@ -3,7 +3,8 @@ import { Doctor } from '../types/Doctor';
 export const doctors: Doctor[] = [
   {
     name: 'Emily Zhang',
-    photo: 'https://i.pravatar.cc/100',
+    photo:
+      'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?semt=ais_hybrid&w=740',
     specialty: 'Dermatologist',
     availability: [
       { date: '04.10', times: ['08:00', '11:20', '14:28', '15:23'] },
@@ -16,7 +17,8 @@ export const doctors: Doctor[] = [
   },
   {
     name: 'Marcus Lee',
-    photo: 'https://i.pravatar.cc/100',
+    photo:
+      'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?semt=ais_hybrid&w=740',
     specialty: 'Cardiologist',
     availability: [{ date: '04.10', times: ['08:00', '11:00'] }],
     location: 'New York, NY',
@@ -24,7 +26,8 @@ export const doctors: Doctor[] = [
   },
   {
     name: 'Aisha Patel',
-    photo: 'https://i.pravatar.cc/100',
+    photo:
+      'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?semt=ais_hybrid&w=740',
     specialty: 'Neurologist',
     availability: [
       { date: '04.12', times: ['08:00', '11:00'] },
@@ -37,7 +40,8 @@ export const doctors: Doctor[] = [
   },
   {
     name: 'John Kim',
-    photo: 'https://i.pravatar.cc/100',
+    photo:
+      'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?semt=ais_hybrid&w=740',
     specialty: 'Psychiatrist',
     availability: [
       { date: '04.11', times: ['09:00', '11:00'] },
@@ -50,7 +54,8 @@ export const doctors: Doctor[] = [
   },
   {
     name: 'Sarah Thompson',
-    photo: 'https://i.pravatar.cc/100',
+    photo:
+      'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?semt=ais_hybrid&w=740',
     specialty: 'Orthopedic Surgeon',
     availability: [
       { date: '04.10', times: ['09:00', '09:30'] },
@@ -63,7 +68,8 @@ export const doctors: Doctor[] = [
   },
   {
     name: 'Javier Morales',
-    photo: 'https://i.pravatar.cc/100',
+    photo:
+      'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?semt=ais_hybrid&w=740',
     specialty: 'Psychiatrist',
     availability: [
       { date: '04.10', times: ['09:30', '12:30'] },
@@ -76,7 +82,8 @@ export const doctors: Doctor[] = [
   },
   {
     name: 'Olivia Bennett',
-    photo: 'https://i.pravatar.cc/100',
+    photo:
+      'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?semt=ais_hybrid&w=740',
     specialty: 'Cardiologist',
     availability: [
       { date: '04.10', times: ['09:00', '11:00'] },
@@ -89,7 +96,8 @@ export const doctors: Doctor[] = [
   },
   {
     name: 'David Nguyen',
-    photo: 'https://i.pravatar.cc/100',
+    photo:
+      'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?semt=ais_hybrid&w=740',
     specialty: 'Gastroenterologist',
     availability: [
       { date: '04.06', times: ['09:00', '11:00'] },
@@ -102,7 +110,8 @@ export const doctors: Doctor[] = [
   },
   {
     name: 'Lily Chen',
-    photo: 'https://i.pravatar.cc/100',
+    photo:
+      'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?semt=ais_hybrid&w=740',
     specialty: 'Cardiologist',
     availability: [
       { date: '04.10', times: ['09:00', '11:00'] },
@@ -115,7 +124,8 @@ export const doctors: Doctor[] = [
   },
   {
     name: 'Noah Brooks',
-    photo: 'https://i.pravatar.cc/100',
+    photo:
+      'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?semt=ais_hybrid&w=740',
     specialty: 'Ophthalmologist',
     availability: [
       { date: '04.10', times: ['10:00', '12:00'] },
