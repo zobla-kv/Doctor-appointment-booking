@@ -64,8 +64,8 @@ const AppointmentModal = ({
                   key={index}
                   className={`p-2 rounded cursor-pointer ${
                     isSelectedTime({ date: slot.date, time })
-                      ? 'time-slot'
-                      : 'time-slot-inactive'
+                      ? 'time-slot-active'
+                      : 'time-slot'
                   }`}
                 >
                   <input
