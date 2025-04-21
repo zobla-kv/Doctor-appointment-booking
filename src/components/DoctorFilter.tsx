@@ -37,7 +37,7 @@ const SelectFilter = ({ name, options, onSelect }: SelectFilterProps) => (
       id={name}
       name={name}
       onChange={(e) => onSelect({ name, value: e.target.value })}
-      className='border rounded focus-outline'
+      className='border rounded focus-outline w-[175px] sm:w-full'
     >
       <option value='' className='text-black'>
         {capitalize(name)}
