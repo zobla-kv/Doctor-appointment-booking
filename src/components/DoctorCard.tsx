@@ -27,22 +27,28 @@ function DoctorCard({ doctor, onBook }: DoctorCardProps) {
       <img
         className='mx-auto rounded'
         src={doctor.photo}
-        alt={`Dr. ${doctor.name}`}
+        alt={`Dr. ${doctor.name}, ${doctor.specialty}`}
         width='100px'
         height='100px'
       />
       <h3 className='text-center mt-3 font-bold'>{doctor.name}</h3>
       <ul className='my-4'>
         {fieldsToRender.map((key) => (
-          <li key={key} className='grid grid-cols-2'>
+          <li
+            key={key}
+            className='grid grid-cols-2'
+            aria-label={`Doctor's ${key}:`}
+          >
             <span className='capitalize underline'>{key}:</span>
             {key === 'availability' ? (
               <div className='col-span-2 grid grid-cols-2'>
                 {doctor.availability.map((slot, i) => (
                   <React.Fragment key={i}>
-                    <span className='font-bold'>{slot.date}</span>
-                    <span className='border flex justify-end'>
-                      <span>{formatList(slot.times)}</span>
+                    <span className='font-bold' aria-label='on'>
+                      {slot.date}
+                    </span>
+                    <span className='flex justify-end'>
+                      <span aria-label='at'>{formatList(slot.times)}</span>
                     </span>
                   </React.Fragment>
                 ))}
@@ -55,6 +61,7 @@ function DoctorCard({ doctor, onBook }: DoctorCardProps) {
       </ul>
       <Button
         text='Book'
+        aria-label={`book a meeting with Dr. ${doctor.name}`}
         styles='block mx-auto mt-auto'
         onClick={() => onBook(doctor)}
       />

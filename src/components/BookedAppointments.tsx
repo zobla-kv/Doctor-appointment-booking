@@ -37,8 +37,13 @@ function BookedAppointments({ appointments: ap }: BookedAppointmentsProps) {
       ) : (
         <ul className='mt-10'>
           {appointments.map(([date, appointments]) => (
-            <li key={date} className='mt-5'>
-              <span className='text-xl font-semibold underline'>{date}</span>
+            <li key={date} className='mt-5' tabIndex={0}>
+              <span
+                className='text-xl font-semibold underline'
+                aria-label='appointment date'
+              >
+                {date}
+              </span>
               {appointments.map((a) => (
                 <div key={a.doctor.name} className='ps-2'>
                   <span className='font-bold'>{a.doctor.name}</span>
@@ -47,7 +52,7 @@ function BookedAppointments({ appointments: ap }: BookedAppointmentsProps) {
                   <span className='mx-1'>-</span>
                   <span>{a.doctor.location}</span>
                   <span className='mx-1'>-</span>
-                  <span>{a.timeSlot.time}</span>
+                  <span aria-label='appointment time'>{a.timeSlot.time}</span>
                 </div>
               ))}
             </li>

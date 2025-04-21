@@ -7,7 +7,7 @@ export const doctors: Doctor[] = [
       'https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5790.jpg?semt=ais_hybrid&w=740',
     specialty: 'Dermatologist',
     availability: [
-      { date: '04.10', times: ['08:00', '11:20', '14:28', '15:23'] },
+      { date: '04.10', times: ['08:00', '11:20'] },
       { date: '04.15', times: ['08:00', '11:20', '15:00'] },
       { date: '04.20', times: ['09:30', '12:00', '15:00'] },
       { date: '05.02', times: ['08:00', '12:00', '15:00'] },

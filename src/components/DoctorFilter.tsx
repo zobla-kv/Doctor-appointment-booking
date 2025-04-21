@@ -10,7 +10,7 @@ interface DoctorFilterProps {
 function DoctorFilter({ filters, onSelect }: DoctorFilterProps) {
   return (
     <form className='flex flex-col gap-2 sm:flex-row'>
-      <label className='font-bold'>Filter</label>
+      <legend className='font-bold'>Filter</legend>
       <SelectFilter
         name='specialty'
         options={filters.specialty}
@@ -29,20 +29,26 @@ interface SelectFilterProps {
 }
 
 const SelectFilter = ({ name, options, onSelect }: SelectFilterProps) => (
-  <select
-    name={name}
-    onChange={(e) => onSelect({ name, value: e.target.value })}
-    className='border rounded outline-none'
-  >
-    <option value='' className='text-black'>
-      {capitalize(name)}
-    </option>
-    {options.map((value) => (
-      <option key={value} value={value} className='text-black'>
-        {value}
+  <div className='flex'>
+    <label htmlFor={name} className='sr-only'>
+      {name}
+    </label>
+    <select
+      id={name}
+      name={name}
+      onChange={(e) => onSelect({ name, value: e.target.value })}
+      className='border rounded focus-outline'
+    >
+      <option value='' className='text-black'>
+        {capitalize(name)}
       </option>
-    ))}
-  </select>
+      {options.map((value) => (
+        <option key={value} value={value} className='text-black'>
+          {value}
+        </option>
+      ))}
+    </select>
+  </div>
 );
 
 export default memo(DoctorFilter);

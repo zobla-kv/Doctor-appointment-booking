@@ -1,14 +1,21 @@
-import { memo } from 'react';
+import { ForwardedRef, memo } from 'react';
 
 interface ButtonProps {
   text: string;
   styles?: string;
+  ref?: ForwardedRef<HTMLButtonElement>;
   onClick: () => void;
 }
 
-function Button({ text, styles, onClick }: ButtonProps) {
+function Button({ text, styles, ref, onClick, ...props }: ButtonProps) {
   return (
-    <button className={'btn-primary w-[100px] ' + styles} onClick={onClick}>
+    <button
+      {...props}
+      ref={ref}
+      role='button'
+      className={'btn-primary focus-outline w-[100px] ' + styles}
+      onClick={onClick}
+    >
       {text}
     </button>
   );
