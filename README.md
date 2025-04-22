@@ -1,54 +1,72 @@
-# React + TypeScript + Vite
+# Doctor Appointment Booking App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This application allows users to book appointments with doctors. Below are the setup instructions, AI use cases, known limitations, and possible next steps for improvements.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Setup Instructions](#setup-instructions)
+- [Commands](#commands)
+- [AI Use Cases](#ai-use-cases)
+- [Known Limitations](#known-limitations)
+- [Next Steps / Improvements](#next-steps--improvements)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Setup instructions
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Clone the repository
+
+```
+git clone https://github.com/zobla-kv/Doctor-appointment-booking.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Navigate to the project root and install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+npm install
+```
+
+##### Commands
+
+- Start development server
+
+```
+npm run dev
+```
+
+- Run tests
+
+```
+npm run test
+```
+
+---
+
+## AI use cases
+
+- App architecture ideas
+- Data modeling
+- Data mocking
+- Code refactoring
+- Different optimizations
+- Accesibility improvements
+- Test generation
+- Readme file improvements
+
+## Known limitations
+
+- Doctor doesn't have unique identifier (id). **getAppointmentTimeForDoctor** finds doctor by name. This can cause bugs if 2 doctors have the same name
+- Navigating with arrows in modal not implemented
+
+## Next steps / improvements
+
+- Make it easier to control list of filters from the parent component, it's possible, but requires changes in multiple places (parent component and model)
+- Make **focusableElements** prop in modal generic. It now handles only inputs
+- More strict type checking for date and time format, now it's just a string
+- Limit doctor rating to range 1-10
+- Utils/transform is too generic, for example capitalize could be moved to utils/text
+- Filter's name is explicitly capitalized, data isn't.
+- Appointments in "my appointments" section are grouped by date and sorted, they could also be sorted by time
+- Use dynamic text for i18n
+- Allow booked appointments to be canceled
+- Add toast messages
