@@ -42,8 +42,8 @@ function DoctorCard({ doctor, onBook }: DoctorCardProps) {
             <span className='capitalize underline'>{key}:</span>
             {key === 'availability' ? (
               <div className='col-span-2 grid grid-cols-2'>
-                {doctor.availability.map((slot, i) => (
-                  <React.Fragment key={i}>
+                {doctor.availability.map((slot) => (
+                  <React.Fragment key={slot.date}>
                     <span className='font-bold' aria-label='on'>
                       {slot.date}
                     </span>

@@ -68,13 +68,13 @@ const AppointmentModal = ({
       focusableElements={radioRefs.current}
     >
       <form ref={formRef} onSubmit={handleSubmit}>
-        {doctor.availability.map((slot, index) => (
-          <fieldset key={index} className='mt-2'>
+        {doctor.availability.map((slot) => (
+          <fieldset key={slot.date} className='mt-2'>
             <label className='text-lg ms-1'>{slot.date}</label>
             <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2'>
-              {slot.times.map((time, index) => (
+              {slot.times.map((time) => (
                 <label
-                  key={index}
+                  key={time}
                   id={`label-${slot.date}-${time}`}
                   htmlFor={`time-slot-${slot.date}-${time}`}
                   className={`p-2 rounded cursor-pointer ${

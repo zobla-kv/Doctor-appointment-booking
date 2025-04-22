@@ -117,8 +117,8 @@ function App() {
           {displayedDoctors.length === 0 ? (
             <span className='mx-auto'>No doctors found.</span>
           ) : (
-            displayedDoctors.map((doctor, index) => (
-              <DoctorCard key={index} doctor={doctor} onBook={openModal} />
+            displayedDoctors.map((doctor) => (
+              <DoctorCard key={doctor.name} doctor={doctor} onBook={openModal} />
             ))
           )}
         </div>
