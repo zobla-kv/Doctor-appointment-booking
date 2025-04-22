@@ -12,13 +12,14 @@ function DoctorFilter({ filters, onSelect }: DoctorFilterProps) {
   return (
     <form className='flex flex-col gap-2 sm:flex-row'>
       <legend className='font-bold'>Filter</legend>
-      <SelectFilter
-        name='specialty'
-        options={filters.specialty}
-        onSelect={onSelect}
-      />
-      <SelectFilter name='date' options={filters.date} onSelect={onSelect} />
-      <SelectFilter name='time' options={filters.time} onSelect={onSelect} />
+      {Object.entries(filters).map(([name, options]) => (
+        <SelectFilter
+          key={name}
+          name={name as keyof FilterOptions}
+          options={options}
+          onSelect={onSelect}
+        />
+      ))}
     </form>
   );
 }
