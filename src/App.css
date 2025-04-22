@@ -12,7 +12,7 @@
   @apply bg-green-600 outline-solid outline-green-700;
 }
 
-.focus-outline:focus,
+.focus-outline:focus-visible,
 label:has(input[type='radio']:focus) {
   outline: 3px solid white;
   outline-offset: 2px;

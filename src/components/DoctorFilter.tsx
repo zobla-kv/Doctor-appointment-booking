@@ -1,6 +1,7 @@
-import { memo } from 'react';
+import { memo, useRef } from 'react';
 import { FilterOptions, Filter } from '../types/Filter';
 import { capitalize } from '../utils/transform';
+import { useAccessibleFocus } from '../hooks/useAccesibleFocus';
 
 interface DoctorFilterProps {
   filters: FilterOptions;
@@ -28,27 +29,33 @@ interface SelectFilterProps {
   onSelect: (filter: Filter) => void;
 }
 
-const SelectFilter = ({ name, options, onSelect }: SelectFilterProps) => (
-  <div className='flex'>
-    <label htmlFor={name} className='sr-only'>
-      {name}
-    </label>
-    <select
-      id={name}
-      name={name}
-      onChange={(e) => onSelect({ name, value: e.target.value })}
-      className='border rounded focus-outline w-[175px] sm:w-full'
-    >
-      <option value='' className='text-black'>
-        {capitalize(name)}
-      </option>
-      {options.map((value) => (
-        <option key={value} value={value} className='text-black'>
-          {value}
+const SelectFilter = ({ name, options, onSelect }: SelectFilterProps) => {
+  const selectRef = useRef<HTMLSelectElement>(null);
+  useAccessibleFocus(selectRef);
+
+  return (
+    <div className='flex'>
+      <label htmlFor={name} className='sr-only'>
+        {name}
+      </label>
+      <select
+        ref={selectRef}
+        id={name}
+        name={name}
+        className='border rounded w-[175px] sm:w-full'
+        onChange={(e) => onSelect({ name, value: e.target.value })}
+      >
+        <option value='' className='text-black'>
+          {capitalize(name)}
         </option>
-      ))}
-    </select>
-  </div>
-);
+        {options.map((value) => (
+          <option key={value} value={value} className='text-black'>
+            {value}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+};
 
 export default memo(DoctorFilter);
